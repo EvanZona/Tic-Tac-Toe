@@ -22,6 +22,8 @@ struct ContentView: View {
                         
                         
                         Color.blue
+                        Color.white
+                            .opacity(moves[index] == "" ? 1 : 0)
                             .frame(width: 120, height: 120, alignment: .center)
                             .cornerRadius(30)
                             .onTapGesture {
@@ -32,6 +34,11 @@ struct ContentView: View {
                                     }
                                 }
                             }
+                            .rotation3DEffect(
+                                .init(degrees: moves[index] != "" ? 180 : 0),
+                                axis: /*@START_MENU_TOKEN@*/(x: 0.0, y: 1.0, z: 0.0)/*@END_MENU_TOKEN@*/
+                            )
+                        
                         Text(moves[index])
                             .font(.system(size: 80))
                             .fontWeight(.heavy)
