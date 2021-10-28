@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var moves = Array(repeating: "", count: 9)
     var body: some View {
         VStack {
             Text("Tic Tac Toe")
@@ -22,9 +23,10 @@ struct ContentView: View {
                         Color.blue
                             .frame(width: 120, height: 120, alignment: .center)
                             .cornerRadius(30)
-                        
-                        Color.blue
-                        Text("X")
+                            .onTapGesture {
+                                moves[index] = "X"
+                            }
+                        Text(moves[index])
                             .font(.system(size: 80))
                             .fontWeight(.heavy)
                     }
